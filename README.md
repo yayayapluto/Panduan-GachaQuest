@@ -8,6 +8,56 @@ peran, dan langkah kerja tiap peran. Root repo sudah memuat seluruh header modul
 `tests/`. Semua dokumen ditulis supaya bisa diikuti tanpa kode solusi, sehingga tim
 menyusun sendiri implementasinya.
 
+## Flow Diagram Profesional per Fitur
+
+Sebelas flowchart profesional Draw.io, satu per fitur, detail. Acuan alurnya
+`docs/PRD.md` dan `docs/panduan-0` sampai `docs/panduan-P5`, disesuaikan dengan
+implementasi final di repo uas-gacha-quest. Bila angka atau aturan berbeda,
+Panduan yang dipakai. Tiap diagram satu halaman, 10 sampai 16 simpul, gaya
+formal yang sama: oval mulai navy, proses putih, keputusan kuning pucat,
+selesai hijau pucat, batal atau gagal merah pucat.
+
+| No | Fitur | Diagram | Gambar |
+|---|---|---|---|
+| 1 | Game Baru | [Draw.io](docs/diagrams/drawio/profesional/01-game-baru.drawio) | <img src="docs/diagrams/drawio/profesional/01-game-baru.png" width="360" alt="Flow diagram Game Baru"> |
+| 2 | Load Game | [Draw.io](docs/diagrams/drawio/profesional/02-load-game.drawio) | <img src="docs/diagrams/drawio/profesional/02-load-game.png" width="360" alt="Flow diagram Load Game"> |
+| 3 | Leaderboard | [Draw.io](docs/diagrams/drawio/profesional/03-leaderboard.drawio) | <img src="docs/diagrams/drawio/profesional/03-leaderboard.png" width="360" alt="Flow diagram Leaderboard"> |
+| 4 | Keluar | [Draw.io](docs/diagrams/drawio/profesional/04-keluar.drawio) | <img src="docs/diagrams/drawio/profesional/04-keluar.png" width="360" alt="Flow diagram Keluar"> |
+| 5 | Battle | [Draw.io](docs/diagrams/drawio/profesional/05-battle.drawio) | <img src="docs/diagrams/drawio/profesional/05-battle.png" width="360" alt="Flow diagram Battle"> |
+| 6 | Gacha | [Draw.io](docs/diagrams/drawio/profesional/06-gacha.drawio) | <img src="docs/diagrams/drawio/profesional/06-gacha.png" width="360" alt="Flow diagram Gacha"> |
+| 7 | Inventory | [Draw.io](docs/diagrams/drawio/profesional/07-inventory.drawio) | <img src="docs/diagrams/drawio/profesional/07-inventory.png" width="360" alt="Flow diagram Inventory"> |
+| 8 | Shop | [Draw.io](docs/diagrams/drawio/profesional/08-shop.drawio) | <img src="docs/diagrams/drawio/profesional/08-shop.png" width="360" alt="Flow diagram Shop"> |
+| 9 | Dungeon | [Draw.io](docs/diagrams/drawio/profesional/09-dungeon.drawio) | <img src="docs/diagrams/drawio/profesional/09-dungeon.png" width="360" alt="Flow diagram Dungeon"> |
+| 10 | Status | [Draw.io](docs/diagrams/drawio/profesional/10-status.drawio) | <img src="docs/diagrams/drawio/profesional/10-status.png" width="360" alt="Flow diagram Status"> |
+| 11 | Simpan | [Draw.io](docs/diagrams/drawio/profesional/11-simpan.drawio) | <img src="docs/diagrams/drawio/profesional/11-simpan.png" width="360" alt="Flow diagram Simpan"> |
+
+## Flow Diagram per Modul
+
+Alur runtime dipecah per modul, supaya tiap diagram tetap pendek dan terbaca.
+Tiap modul punya dua versi Draw.io dengan alur dan angka yang sama persis,
+beda hanya gaya dan bahasa. Versi formal rapi dan profesional, versi bermain
+berwarna cerah dengan bahasa santai. Gambar di bawah ini versi formal saja,
+versi bermain cukup ditautkan supaya README tidak kepanjangan. Sumber alur:
+`docs/PRD.md`, `docs/PROJECT-OVERVIEW.md`, dan `docs/panduan-0` sampai
+`docs/panduan-P5`. Arsip diagram besar lama masih ada di
+[docs/flow-diagram.mmd](docs/flow-diagram.mmd).
+
+| Modul | Diagram | Gambar (formal) |
+|---|---|---|
+| Menu dan Hub | [Formal](docs/diagrams/drawio/formal/menu-hub.drawio) / [Bermain](docs/diagrams/drawio/bermain/menu-hub.drawio) | <img src="docs/diagrams/drawio/formal/menu-hub.png" width="360" alt="Flow diagram Menu dan Hub, versi formal"> |
+| Battle dan Player | [Formal](docs/diagrams/drawio/formal/battle-player.drawio) / [Bermain](docs/diagrams/drawio/bermain/battle-player.drawio) | <img src="docs/diagrams/drawio/formal/battle-player.png" width="360" alt="Flow diagram Battle dan Player, versi formal"> |
+| Gacha | [Formal](docs/diagrams/drawio/formal/gacha.drawio) / [Bermain](docs/diagrams/drawio/bermain/gacha.drawio) | <img src="docs/diagrams/drawio/formal/gacha.png" width="360" alt="Flow diagram Gacha, versi formal"> |
+| Inventory | [Formal](docs/diagrams/drawio/formal/inventory.drawio) / [Bermain](docs/diagrams/drawio/bermain/inventory.drawio) | <img src="docs/diagrams/drawio/formal/inventory.png" width="360" alt="Flow diagram Inventory, versi formal"> |
+| Shop | [Formal](docs/diagrams/drawio/formal/shop.drawio) / [Bermain](docs/diagrams/drawio/bermain/shop.drawio) | <img src="docs/diagrams/drawio/formal/shop.png" width="360" alt="Flow diagram Shop, versi formal"> |
+| Dungeon | [Formal](docs/diagrams/drawio/formal/dungeon.drawio) / [Bermain](docs/diagrams/drawio/bermain/dungeon.drawio) | <img src="docs/diagrams/drawio/formal/dungeon.png" width="360" alt="Flow diagram Dungeon, versi formal"> |
+| Storage | [Formal](docs/diagrams/drawio/formal/storage.drawio) / [Bermain](docs/diagrams/drawio/bermain/storage.drawio) | <img src="docs/diagrams/drawio/formal/storage.png" width="360" alt="Flow diagram Storage, versi formal"> |
+
+Catatan alur: modul game tidak menulis berkas sendiri. Semua persistensi lewat
+`storage` (`loadCatalog` 36 item, `loadMonsters` 12 monster, `saveGameSlot` dan
+`loadGameSlot`, `recordScore`), semua akses OS lewat `platform` (`plat_rand`,
+`file_write_atomic`, autosave CRC32, lock sesi, log), dan Hub memanggil
+`autosave_publish`.
+
 ## Daftar Isi
 
 1. [PRD](docs/PRD.md) — kebutuhan produk, aturan game, kontrak modul, kriteria penerimaan.

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="drawio" version="26.0.0">
+  <diagram name="Page-1">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+    <mxCell id="2" value="Alur Modul Storage Gacha Quest" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F3864;" vertex="1" parent="1">
+      <mxGeometry x="40" y="16" width="1020" height="30" as="geometry" />
+    </mxCell>
+    <mxCell id="3" value="Mulai" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1F3864;strokeColor=#1F3864;fontColor=#FFFFFF;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="430" y="70" width="240" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="4" value="Muat katalog&#xa;loadCatalog / loadMonsters" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="410" y="180" width="280" height="64" as="geometry" />
+    </mxCell>
+    <mxCell id="5" value="Katalog siap&#xa;item.txt: 36 item&#xa;monster.txt: 12 monster" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="410" y="300" width="280" height="64" as="geometry" />
+    </mxCell>
+    <mxCell id="6" value="Simpan&#xa;atau Muat?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#BF9000;fontColor=#333333;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="410" y="420" width="280" height="96" as="geometry" />
+    </mxCell>
+    <mxCell id="7" value="Simpan ke slot 1-5&#xa;saveGameSlot" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="120" y="580" width="280" height="64" as="geometry" />
+    </mxCell>
+    <mxCell id="8" value="Format save&#xa;baris 1: 15 field&#xa;nama|hp|maxHp|level|exp|gold|&#xa;atk|def|potion|pity|totalPull|&#xa;score|seed|weaponId|armorId&#xa;baris 2: itemCount&#xa;id item per baris" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="120" y="700" width="280" height="128" as="geometry" />
+    </mxCell>
+    <mxCell id="9" value="Muat save&#xa;loadGameSlot&#xa;slot 1 fallback save.txt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="700" y="580" width="280" height="64" as="geometry" />
+    </mxCell>
+    <mxCell id="10" value="File rusak?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#BF9000;fontColor=#333333;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="700" y="700" width="280" height="96" as="geometry" />
+    </mxCell>
+    <mxCell id="11" value="Gagal memuat&#xa;tolak, bukan crash&#xa;kembali" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#7F1D1D;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="700" y="860" width="280" height="64" as="geometry" />
+    </mxCell>
+    <mxCell id="12" value="Leaderboard&#xa;recordScore / showLeaderboard&#xa;maks 10 entri, tampil 5 teratas" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="410" y="980" width="280" height="64" as="geometry" />
+    </mxCell>
+    <mxCell id="13" value="Autosave&#xa;autosave.dat magic GQAS&#xa;CRC32, autosave.bak&#xa;file_write_atomic, session.lock" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="410" y="1100" width="280" height="80" as="geometry" />
+    </mxCell>
+    <mxCell id="14" value="Selesai&#xa;kembali ke Hub / Menu Utama" style="ellipse;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D5016;fontSize=13;" vertex="1" parent="1">
+      <mxGeometry x="430" y="1240" width="240" height="60" as="geometry" />
+    </mxCell>
+    <mxCell id="15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="3" target="4">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="5">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="6">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="18" value="Simpan" style="edgeStyle=none;rounded=1;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.25;exitY=0.75;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="6" target="7">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="19" value="Muat" style="edgeStyle=none;rounded=1;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.75;exitY=0.75;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="6" target="9">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7" target="8">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="9" target="10">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="22" value="Ya" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="10" target="11">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="23" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="10" target="12">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+        <mxPoint x="620" y="748" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="8" target="12">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+        <mxPoint x="260" y="890" />
+        <mxPoint x="480" y="890" />
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="25" value="Kembali" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="11" target="6">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+        <mxPoint x="1040" y="892" />
+        <mxPoint x="1040" y="468" />
+        </Array>
+        <mxPoint x="-80" y="0" as="offset" />
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="12" target="13">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="13" target="14">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
