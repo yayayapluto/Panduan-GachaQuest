@@ -26,8 +26,7 @@ dan kriteria penerimaan ada di [PRD](PRD.md).
   seharga 900 gold. Peluang tiap tingkat kelangkaan diatur di [PRD](PRD.md), dan sistem pity
   menjamin hasil Epic setelah sepuluh tarikan tanpa Epic.
 - **Inventory** berisi maksimal 36 item dengan mode urut berdasarkan power, kelangkaan,
-  atau nama. Pencarian substring memakai pencarian linear, sedangkan pencarian nama
-  persis memakai binary search setelah daftar diurutkan menurut nama.
+  atau nama. Pencarian memakai pencarian linear substring yang tidak peka huruf besar-kecil.
 - **Shop** untuk membeli potion seharga 40 gold dengan batas stok 20, serta menjual item
   duplikat dengan harga sesuai kelangkaannya.
 - **Dungeon prosedural ber-seed**. Satu angka seed menentukan seluruh isi dunia, jadi
