@@ -8,6 +8,32 @@ peran, dan langkah kerja tiap peran. Root repo sudah memuat seluruh header modul
 `tests/`. Semua dokumen ditulis supaya bisa diikuti tanpa kode solusi, sehingga tim
 menyusun sendiri implementasinya.
 
+## Flow Diagram per Fitur
+
+Sebelas flowchart profesional Draw.io, satu per fitur, detail. Acuan alurnya
+`docs/PRD.md` dan `docs/panduan-0` sampai `docs/panduan-P5`, disesuaikan dengan
+implementasi final di repo uas-gacha-quest. Bila angka atau aturan berbeda,
+Panduan yang dipakai. Tiap diagram satu halaman, 10 sampai 16 simpul, gaya
+formal yang sama: oval mulai navy, proses putih, keputusan kuning pucat,
+selesai hijau pucat, batal atau gagal merah pucat.
+
+| No | Fitur | Diagram | Gambar |
+|---|---|---|---|
+| 1 | Game Baru | [Draw.io](docs/diagrams/01-game-baru.drawio) | <img src="docs/diagrams/01-game-baru.png" width="360" alt="Flow diagram Game Baru"> |
+| 2 | Load Game | [Draw.io](docs/diagrams/02-load-game.drawio) | <img src="docs/diagrams/02-load-game.png" width="360" alt="Flow diagram Load Game"> |
+| 3 | Leaderboard | [Draw.io](docs/diagrams/03-leaderboard.drawio) | <img src="docs/diagrams/03-leaderboard.png" width="360" alt="Flow diagram Leaderboard"> |
+| 4 | Keluar | [Draw.io](docs/diagrams/04-keluar.drawio) | <img src="docs/diagrams/04-keluar.png" width="360" alt="Flow diagram Keluar"> |
+| 5 | Battle | [Draw.io](docs/diagrams/05-battle.drawio) | <img src="docs/diagrams/05-battle.png" width="360" alt="Flow diagram Battle"> |
+| 6 | Gacha | [Draw.io](docs/diagrams/06-gacha.drawio) | <img src="docs/diagrams/06-gacha.png" width="360" alt="Flow diagram Gacha"> |
+| 7 | Inventory | [Draw.io](docs/diagrams/07-inventory.drawio) | <img src="docs/diagrams/07-inventory.png" width="360" alt="Flow diagram Inventory"> |
+| 8 | Shop | [Draw.io](docs/diagrams/08-shop.drawio) | <img src="docs/diagrams/08-shop.png" width="360" alt="Flow diagram Shop"> |
+| 9 | Dungeon | [Draw.io](docs/diagrams/09-dungeon.drawio) | <img src="docs/diagrams/09-dungeon.png" width="360" alt="Flow diagram Dungeon"> |
+| 10 | Status | [Draw.io](docs/diagrams/10-status.drawio) | <img src="docs/diagrams/10-status.png" width="360" alt="Flow diagram Status"> |
+| 11 | Simpan | [Draw.io](docs/diagrams/11-simpan.drawio) | <img src="docs/diagrams/11-simpan.png" width="360" alt="Flow diagram Simpan"> |
+
+
+Arsip diagram besar lama masih ada di [docs/flow-diagram.mmd](docs/flow-diagram.mmd).
+
 ## Daftar Isi
 
 1. [PRD](docs/PRD.md) — kebutuhan produk, aturan game, kontrak modul, kriteria penerimaan.

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<mxfile host="drawio" version="26.0.0">
+  <diagram name="Page-1">
+    <mxGraphModel>
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="03 Flow Leaderboard Gacha Quest" style="text;html=1;fontSize=20;fontStyle=1;align=center;verticalAlign=middle;fontColor=#1F3864;" vertex="1" parent="1">
+          <mxGeometry x="40" y="16" width="1020" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="Mulai: Menu Utama pilih 3 Leaderboard" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1F3864;strokeColor=#1F3864;fontColor=#FFFFFF;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="430" y="70" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="showLeaderboard dipanggil&#10;dari mainMenu (case 3)" style="whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="410" y="190" width="280" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Baca data/leaderboard.txt&#10;format nama|level|skor&#10;maks 10 entri (MAX_LEADERBOARD)" style="whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="410" y="310" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Berkas ada dan berisi entri?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#BF9000;fontColor=#333333;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="410" y="450" width="280" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="Tampilkan pesan&#10;Belum ada data leaderboard" style="whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#7F1D1D;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="740" y="458" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="Ambil 5 teratas urut skor menurun&#10;(TOP_DISPLAY)" style="whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="410" y="600" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Tampilkan tabel peringkat 1 sampai 5&#10;kolom Nama, Level, Skor" style="whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="410" y="740" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="Tunggu tombol apa pun" style="whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="410" y="880" width="280" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Kembali ke Menu Utama" style="ellipse;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D5016;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="430" y="1000" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Pencatatan skor (recordScore)" style="text;html=1;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;fontColor=#1F3864;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1090" width="1020" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="Mulai pencatatan skor&#10;keluar Hub ke Menu Utama&#10;atau battleRunAborted" style="ellipse;whiteSpace=wrap;html=1;fillColor=#1F3864;strokeColor=#1F3864;fontColor=#FFFFFF;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="410" y="1140" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="Baca entri lama, tambah baris&#10;nama|level|skor pemain" style="whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="410" y="1280" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="Jumlah entri lebih dari 10?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#BF9000;fontColor=#333333;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="410" y="1420" width="280" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="Buang entri skor terendah" style="whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="740" y="1436" width="280" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="Urutkan menurun menurut skor&#10;tulis atomik file_write_atomic" style="whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="410" y="1570" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="Skor dicatat, kembali ke Menu Utama" style="ellipse;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D5016;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="430" y="1710" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" value="Ya" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="6" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7" target="10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="860" /><mxPoint x="550" y="860" /></Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="8" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="9" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="14" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" value="Ya" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="15" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="15" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;fontSize=12;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="16" target="17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="1610" /></Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endSize=8;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="17" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

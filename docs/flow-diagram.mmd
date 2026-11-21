@@ -1,0 +1,131 @@
+%% Gacha Quest - Flow Diagram
+%% Sumber: docs/PRD.md, docs/PROJECT-OVERVIEW.md, docs/panduan-0 sampai panduan-P5
+%% Alur runtime utama: Menu Utama -> Hub -> Battle / Gacha / Inventory / Shop / Dungeon
+flowchart TD
+    Start([Mulai<br/>bin/game]) --> Init[platform_init dan ui_init<br/>cek terminal minimal 50x20]
+    Init --> Menu
+
+    subgraph MenuUtama["Menu Utama"]
+        Menu{{Menu Utama<br/>1 Game Baru / 2 Load Game<br/>3 Leaderboard / 0 Keluar}}
+        NewGame[Game Baru<br/>initPlayer]
+        InputNama[Nama pemain<br/>kosong ditolak, maks 29 karakter]
+        InputSeed[Seed dunia 0 sampai 4294967295<br/>Enter kosong sama dengan seed dari jam]
+        LoadGame[Load Game<br/>5 slot, Esc batal]
+        SlotInfo[Slot kosong tidak bisa dipilih<br/>slot 1 fallback ke save.txt]
+        Board[Leaderboard<br/>10 entri tersimpan, 5 teratas tampil]
+        Keluar([Keluar<br/>konfirmasi y/n, platform_shutdown])
+    end
+
+    Menu -- 1 --> NewGame
+    NewGame --> InputNama
+    InputNama --> InputSeed
+    InputSeed --> Hub
+    Menu -- 2 --> LoadGame
+    LoadGame --> SlotInfo
+    SlotInfo -- slot valid --> Hub
+    SlotInfo -- Esc --> Menu
+    Menu -- 3 --> Board
+    Board -- tombol apa pun --> Menu
+    Menu -- 0 --> Keluar
+
+    subgraph HubMenu["Hub"]
+        Hub{{Hub<br/>1 Battle / 2 Gacha / 3 Inventory<br/>4 Shop / 5 Dungeon / 6 Status<br/>7 Save / 0 ke Menu Utama}}
+        Status[Status<br/>showStatus, tombol apa pun kembali]
+        Save[Save<br/>saveGameSlot ke slot 1 sampai 5<br/>timpa slot lama pakai konfirmasi]
+    end
+
+    Hub -- 6 --> Status
+    Status --> Hub
+    Hub -- 7 --> Save
+    Save --> Hub
+    Hub -- 0 --> Menu
+
+    subgraph BattleFlow["Battle"]
+        Battle[Battle<br/>startBattle atau startBattleAgainst<br/>Serang / Bertahan / Potion / Kabur]
+        Damage["Damage = max(1, atk-def) + plat_rand() % 4<br/>crit 10 persen, pengali 2"]
+        Hasil{{Hasil ronde}}
+        Hadiah[Hadiah EXP dan gold<br/>addExp, naik level bila cukup]
+        GameOver[Game Over<br/>battleGameOverScreen]
+    end
+
+    Hub -- 1 --> Battle
+    Battle --> Damage
+    Damage --> Hasil
+    Hasil -- menang --> Hadiah
+    Hadiah --> Hub
+    Hasil -- kalah --> GameOver
+    Hasil -- lanjut --> Battle
+    GameOver -- 1 Mulai ulang --> Hub
+    GameOver -- 2 ke Menu Utama --> Menu
+
+    subgraph GachaFlow["Gacha"]
+        Gacha[Gacha<br/>gachaMenu]
+        CekGold{{Gold cukup}}
+        Pull[Pull 1x 100 gold<br/>atau pull 10x 900 gold]
+        Roll[rollRarity 1 sampai 100<br/>Common 1-60 / Rare 61-85<br/>Epic 86-97 / Legendary 98-100]
+        Pity[Pity 10 tanpa Epic<br/>hasil dipaksa Epic, pity kembali 0]
+        PullOnce[pullOnce<br/>tas penuh sama dengan harga duplikat<br/>Common 20 / Rare 50 / Epic 150 / Legendary 500]
+        GoldKurang[Gold kurang, pull batal<br/>gold tidak berkurang]
+    end
+
+    Hub -- 2 --> Gacha
+    Gacha --> CekGold
+    CekGold -- tidak --> GoldKurang
+    GoldKurang --> Hub
+    CekGold -- ya --> Pull
+    Pull --> Roll
+    Roll --> Pity
+    Pity --> PullOnce
+    PullOnce --> Hub
+
+    subgraph InventoryFlow["Inventory"]
+        Inventory[Inventory<br/>inventoryMenu, maks 36 item]
+        Kelola[Urutkan, cari, pasang<br/>sort mode 1 bubble, 2 selection, 3 bubble<br/>cari linear substring, binary nama persis<br/>equip senjata atau armor]
+    end
+
+    Hub -- 3 --> Inventory
+    Inventory --> Kelola
+    Kelola --> Hub
+
+    subgraph ShopFlow["Shop"]
+        Shop[Shop<br/>shopMenu]
+        Beli[Beli potion 40 gold<br/>stok maks 20]
+        Jual[Jual item<br/>harga ikut rarity, konfirmasi dulu<br/>item terpasang tidak bisa dijual]
+    end
+
+    Hub -- 4 --> Shop
+    Shop --> Beli
+    Shop --> Jual
+    Beli --> Hub
+    Jual --> Hub
+
+    subgraph DungeonFlow["Dungeon"]
+        Dungeon[Dungeon<br/>runDungeon atau resumeDungeon<br/>gerak w/a/s/d, h hint, q keluar run]
+        Cell[Sel dihitung dari seed dan posisi<br/>cellHash dan dungeonCell<br/>sel 1,1 selalu lantai]
+        Tembok[Tembok, tidak bisa lewat]
+        Treasure[Treasure 30 gold<br/>sekali ambil per sel]
+        Chest[Chest 40 sampai 120 gold<br/>atau 2 potion]
+        Hint[Hint 30 gold, maks 3 per run<br/>arah dari bfsShortestPath]
+        MonsterCell[Monster di sel]
+    end
+
+    Hub -- 5 --> Dungeon
+    Dungeon --> Cell
+    Cell --> Tembok
+    Tembok --> Dungeon
+    Cell --> Treasure
+    Treasure --> Dungeon
+    Cell --> Chest
+    Chest --> Dungeon
+    Cell --> Hint
+    Hint --> Dungeon
+    Cell --> MonsterCell
+    MonsterCell --> Battle
+    Dungeon -- q --> Hub
+
+    %% Lapisan bawah, sengaja tidak digambar sebagai simpul agar alur tetap terbaca:
+    %% storage: loadCatalog 36 item, loadMonsters 12 monster,
+    %% saveGameSlot dan loadGameSlot, recordScore.
+    %% platform: plat_rand, file_write_atomic, autosave CRC32, lock sesi, log.
+    %% Modul game tidak menulis berkas sendiri, semua persistensi lewat storage,
+    %% semua akses OS lewat platform. Hub memanggil autosave_publish.
