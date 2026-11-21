@@ -208,7 +208,7 @@ berkas ada di [PRD](PRD.md) bagian 8.
 
 ## Standar Kualitas
 
-- Kompilasi bersih dengan `-std=c11 -Wall -Wextra -Wpedantic`. Satu warning pun
+- Kompilasi bersih dengan `-std=c11 -Wall -Wextra -Wpedantic -D_POSIX_C_SOURCE=200809L`. Satu warning pun
   dianggap gagal.
 - Seluruh driver di `tests/` keluar dengan kode 0, dan `make test` menjalankan semua
   skenario penerimaan tanpa kegagalan.
