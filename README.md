@@ -19,10 +19,17 @@ menyusun sendiri implementasinya.
 7. [Panduan P3 — Battle dan Player](docs/panduan-P3-battle-player.md)
 8. [Panduan P4 — Gacha dan Inventory](docs/panduan-P4-gacha-inventory.md)
 9. [Panduan P5 — Shop dan Storage](docs/panduan-P5-shop-storage.md)
+10. [Spesifikasi Tampilan](docs/UI.md): arsitektur lapisan UI, geometri, palet, dan isi tiap layar.
+11. [Tangkapan Layar](docs/screens.md): 18 gambar target sebagai pembanding tampilan akhir.
+12. [Keputusan Perilaku](docs/KEPUTUSAN-PERILAKU.md): hal yang tidak diatur PRD dan wajib disamakan.
 
 Urutannya disengaja. Baca PRD lebih dulu karena di sana semua angka dan kontrak
 fungsi ditetapkan. Sesudah itu panduan peran bisa dibaca sesuai tanggung jawab
 masing-masing, sedangkan Panduan 0 dipakai bersama saat menyiapkan mesin kerja.
+
+Setiap panduan peran punya bagian `## Jalur Mahir` untuk anggota yang sudah nyaman
+C, git, terminal, dan testing. Bagian itu memuat urutan ringkas, bukti diterima,
+dan jebakan. Jalur pemula di bawahnya tetap lengkap.
 
 ## Prasyarat
 
@@ -84,10 +91,10 @@ dipakai. Jangan melampirkan seluruh repo.
 
 | Anggota | Panduan yang dilampirkan | Header pendukung | Skenario yang harus lulus |
 |---|---|---|---|
-| P1 | [Panduan P1](docs/panduan-P1-scaffold-ui.md) | `src/core/config.h`, `src/util/util.h`, `src/platform/*.h` | S01, S02, S17, dan `make test` 24 baris lulus |
+| P1 | [Panduan P1](docs/panduan-P1-scaffold-ui.md) | `src/core/config.h`, `src/util/util.h`, `src/platform/*.h` | S01, S02, S17, dan `make test` semua lulus |
 | P2 | [Panduan P2](docs/panduan-P2-dungeon.md) | `src/dungeon/dungeon.h`, `src/core/config.h` | S12, S13, S14, S16 |
 | P3 | [Panduan P3](docs/panduan-P3-battle-player.md) | `src/player/player.h`, `src/battle/battle.h` | S03, S04, S18 |
-| P4 | [Panduan P4](docs/panduan-P4-gacha-inventory.md) | `src/gacha/gacha.h`, `src/inventory/inventory.h` | S05, S08, S09, S19 |
+| P4 | [Panduan P4](docs/panduan-P4-gacha-inventory.md) | `src/gacha/gacha.h`, `src/inventory/inventory.h` | S05, S08, S09 |
 | P5 | [Panduan P5](docs/panduan-P5-shop-storage.md) | `src/storage/storage.h`, `src/shop/shop.h` | S09, S10, S11, S15 |
 
 Setiap panduan peran sudah memuat `## Konteks untuk AI` berisi angka pasti,
@@ -107,7 +114,7 @@ Root repo sengaja hanya berisi tiga hal:
 - `data/item.txt` dan `data/monster.txt` — katalog contoh berformat
   pipa yang harus dibaca program.
 - `tests/` — skrip `run_tests.sh`, seluruh driver `t_*`, dan input skenario
-  S01–S19 sebagai acuan penerimaan.
+  S01–S18 sebagai acuan penerimaan.
 
 Tidak ada satu pun berkas `src/**/*.c` di dalam repo ini, dan tidak ada `Makefile`
 di root. Implementasi, Makefile, serta `main.c` adalah pekerjaan tim. Header dipakai
@@ -137,10 +144,19 @@ Dari root repo:
 sh tests/run_tests.sh
 ```
 
-Skrip ini mengompilasi game dan seluruh driver `t_*`, lalu menjalankan 19 skenario
-(S01–S19). Setiap baris hasil menandai lulus atau gagal. Pengujian butuh `gcc` dan
+Skrip ini mengompilasi game dan seluruh driver `t_*`, lalu menjalankan 18 skenario
+(S01–S18). Setiap baris hasil menandai lulus atau gagal. Pengujian butuh `gcc` dan
 `make` yang sudah terpasang, jadi selesaikan dulu langkah pada
 [Panduan 0](docs/panduan-0-git-dan-kompilasi.md).
+
+Setelah game berjalan, cek paritas tampilan dan alur:
+
+```sh
+sh tests/parity.sh
+```
+
+Skrip membandingkan output `bin/game` dengan `tests/out_golden.txt`. Hasil
+`PARITAS OK` berarti alur demo dan teks layar sama dengan target.
 
 ## Checklist Demo
 

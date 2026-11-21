@@ -36,7 +36,7 @@ Pekerjaan dibagi menjadi lima fase. Setiap fase ditutup dengan tag Git, sehingga
 
 **F3 — Integrasi (`integrasi`), pemilik P1.** Menggabungkan branch `feat/*` ke `dev`, memperbaiki pemanggilan yang tidak cocok, dan menjalankan `make test`. Tag `integrasi` dipasang setelah seluruh driver `t_*` lulus di `dev`.
 
-**F4 — Uji penuh dan demo (`rilis`), pemilik P1 dengan seluruh tim.** Menjalankan skenario S01–S19 dari `tests/run_tests.sh`, mendemokan dua belas layar, dan berlatih presentasi. Tag `rilis` adalah versi yang dikumpulkan.
+**F4 — Uji penuh dan demo (`rilis`), pemilik P1 dengan seluruh tim.** Menjalankan skenario S01–S18 dari `tests/run_tests.sh`, mendemokan dua belas layar, dan berlatih presentasi. Tag `rilis` adalah versi yang dikumpulkan.
 
 Urutan tag: `contract-v1` → `ui-ready` → `integrasi` → `rilis`. Tag tidak boleh melompati fase, karena tag berikutnya mengasumsikan tag sebelumnya sudah ada.
 
@@ -69,7 +69,7 @@ Empat minggu, dengan asumsi sekitar 8–10 jam kerja per orang per minggu.
 | M1 | Kontrak dan scaffold | `contract-v1`, `Makefile`, `main.c` kerangka, semua stub kompilasi |
 | M2 | UI dan modul awal | `ui-ready`, P2–P5 mulai branch `feat/*`, minimal satu fungsi publik per modul |
 | M3 | Modul selesai dan integrasi | Semua branch `feat/*` digabung ke `dev`, tag `integrasi`, `make test` lulus |
-| M4 | Uji penuh, demo, latihan presentasi | Skenario S01–S19 lulus, dua belas layar didemokan, tag `rilis` |
+| M4 | Uji penuh, demo, latihan presentasi | Skenario S01–S18 lulus, dua belas layar didemokan, tag `rilis` |
 
 M2 adalah minggu paling padat karena P1 masih mengerjakan UI sementara P2–P5 baru mulai. Kalau jadwal mepet, yang dipotong adalah fitur tambahan, bukan test atau perbaikan bug.
 
@@ -81,11 +81,11 @@ Kriteria di bawah berlaku per fase. Fase belum boleh ditutup kalau ada satu buti
 
 **F1 — `ui-ready`.** Menu Utama, Game Baru, Load Game 5 slot, Leaderboard, dan Hub bisa dibuka dan dikendalikan dengan tombol yang tertulis di PRD §5. Terminal kembali ke mode normal setelah keluar. `src/platform` lengkap dan `bin/t_platform` lulus.
 
-**F2 — modul paralel.** Semua fungsi publik pada header milik modul sudah diimplementasikan, driver terkait lulus (`t_battle`, `t_gacha`, `t_inventory`, `t_search`, `t_dungeon`, `t_storage`, `t_leaderboard`, `t_player`), tidak ada `printf` layar dan tidak ada `rand()`, serta PR sudah direview.
+**F2 — modul paralel.** Semua fungsi publik pada header milik modul sudah diimplementasikan, driver terkait lulus (`t_battle`, `t_gacha`, `t_inventory`, `t_dungeon`, `t_storage`, `t_leaderboard`, `t_player`), tidak ada `printf` layar dan tidak ada `rand()`, serta PR sudah direview.
 
 **F3 — `integrasi`.** Branch `feat/*` sudah masuk `dev`, `make` bersih tanpa warning, seluruh driver `t_*` lulus di `dev`, dan tidak ada file milik orang lain yang ikut berubah di diff.
 
-**F4 — `rilis`.** `run_tests.sh` lulus untuk S01–S19, dua belas layar berjalan sesuai PRD §5, `README.md` mencantumkan cara build dan menjalankan test, dan tim sudah melakukan satu kali latihan presentasi penuh.
+**F4 — `rilis`.** `run_tests.sh` lulus untuk S01–S18, dua belas layar berjalan sesuai PRD §5, `README.md` mencantumkan cara build dan menjalankan test, dan tim sudah melakukan satu kali latihan presentasi penuh.
 
 ## Pemetaan Materi ke Pemilik
 
@@ -105,7 +105,7 @@ Tabel ini memastikan setiap materi kuliah punya wujud nyata di kode dan ada oran
 | Karakter & string | `char name[MAX_NAME]`, `strcmp`/`strncpy`/`sscanf`, lowercase, parsing `\|` | P4, P5 |
 | Pointer dasar & parameter alamat | `Player *p` di semua modul, `int *pity`, `Point path[]`, buffer keluaran | semua |
 | struct, typedef, array of structs | `Item`, `Monster`, `Player`, `Point`, `DungeonState` di `config.h` | P1 (kontrak), semua (pakai) |
-| Searching & sorting | `findItemInInventory` (sequential), `sortInventory` mode 1/3 (bubble), mode 2 (selection), `searchItemByNameBinary` (binary), leaderboard top 10 | P4, P5 |
+| Searching & sorting | `findItemInInventory` (sequential), `sortInventory` mode 1/3 (bubble), mode 2 (selection), leaderboard top 10 | P4, P5 |
 | File teks & persistensi | `loadCatalog`/`loadMonsters`, `saveGameSlot`/`loadGameSlot`, `recordScore`, `file_write_atomic` | P5 |
 | Penanganan error file/input | pesan gagal muat/simpan, validasi angka dan nama, fallback non-interaktif | P5, P1 |
 | Pengujian dasar | `tests/run_tests.sh`, driver `t_*` lulus tanpa warning | semua |

@@ -19,6 +19,18 @@ pribadi hasil clone: folder `.git`, `.gitignore`, serta `src/`, `data/`, dan `te
 yang sudah ada di root repo. Semua file itu milik masing-masing anggota di mesinnya
 sendiri, bukan milik bersama.
 
+## Jalur Mahir
+
+Bagian ini untuk anggota yang sudah nyaman dengan C, git, terminal, dan testing.
+Lewati penjelasan alat, tetapi jangan lewati bukti.
+
+- Prasyarat yang diasumsikan sudah ada: `gcc`, `make`, `sh`, `git`, dan MSYS2 di `PATH`.
+- Baca: [PRD §2](PRD.md), [PEMBAGIAN-TUGAS](PEMBAGIAN-TUGAS.md), dan bagian branch kerja di panduan ini.
+- Urutan: cek alat, atur identitas git, buat branch, commit kecil, kirim branch, buka PR ke `dev`.
+- Bukti diterima: `git branch --show-current` menampilkan branch kerja, `make` tanpa warning, `make test` menampilkan 0 gagal.
+- Jebakan: build hanya dari root repo; `make clean` gagal bila game masih berjalan; jangan rebase branch orang lain; jangan memaksa kirim ke remote.
+- Kalau ragu soal perintah git yang menghapus pekerjaan, berhenti dan tanya P1.
+
 ## Prasyarat
 
 - `gcc` versi 9 atau lebih baru, `make`, dan `git` sudah terpasang.
@@ -260,7 +272,6 @@ make test
 ```text
 S01 nama kosong atau terlalu panjang ... lulus
 ...
-S19 selection sort & binary search ... lulus
 Semua skenario lulus
 ```
 

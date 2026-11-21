@@ -15,6 +15,16 @@ Hanya folder berikut yang boleh kamu ubah:
 
 Header `src/storage/storage.h` dan `src/shop/shop.h` ada di kontrak dan tidak boleh diubah. Kalau kamu merasa butuh fungsi tambahan, diskusikan dengan P1; jangan menambah deklarasi sendiri. Kamu juga boleh membuat file `.c` pendukung di dalam folder milikmu, tapi mulailah dengan `storage.c` dan `shop.c` saja.
 
+## Jalur Mahir
+
+Untuk P5 yang sudah nyaman C dan operasi file. Format data dan kontrak tidak
+berubah; panduan rinci di bawah tetap menjadi acuan.
+
+- Baca dulu: `src/shop/shop.h`, `src/storage/storage.h`, `src/platform/atomicfile.h`, `src/core/config.h`, `tests/t_storage.c`, `tests/t_leaderboard.c`, `docs/PRD.md` §6 dan §8.
+- Urutan: katalog dan monster, save/load 15 field, helper slot dan picker, leaderboard, menu toko, audit tulis atomik.
+- Bukti diterima: `bin/t_storage` dan `bin/t_leaderboard` lulus, S09/S10/S11/S15 lulus, save hasil simpan bisa dimuat kembali tanpa kehilangan data.
+- Jebakan: urutan 15 field adalah kontrak; semua penulisan lewat tulis atomik; leaderboard dipotong 10 dan urut menurun; item terpasang tidak boleh dijual.
+
 ## Konteks untuk AI
 
 Bagian ini untuk ditempel bersama panduan saat meminta bantuan AI. Isinya meringkas lingkup kerjamu, batasan yang tidak boleh dilanggar, format berkas, dan prototipe fungsi yang harus ada.
