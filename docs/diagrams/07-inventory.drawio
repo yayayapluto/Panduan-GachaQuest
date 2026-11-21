@@ -35,7 +35,7 @@
         <mxCell id="11" value="Urutkan dulu mode 3&#xa;sortInventory(p, 3)&#xa;nama A-Z case-insensitive" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
           <mxGeometry x="340" y="760" width="270" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="12" value="Cari binary&#xa;searchItemByNameBinary&#xa;nama persis case-insensitive&#xa;hanya setelah sort mode 3" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
+        <mxCell id="12" value="Cari item&#xa;searchItemByName&#xa;linear, nama persis case-insensitive" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
           <mxGeometry x="650" y="760" width="270" height="90" as="geometry" />
         </mxCell>
         <mxCell id="13" value="Layar Equip Item&#xa;pilih dengan panah&#xa;scroll 12 baris&#xa;Esc batal" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2F5597;fontColor=#1F3864;fontSize=13;" vertex="1" parent="1">
