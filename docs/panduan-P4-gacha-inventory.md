@@ -24,6 +24,16 @@ Header `gacha.h` dan `inventory.h` ada di kontrak dan tidak boleh kamu ubah. Kal
 kamu merasa butuh fungsi publik baru, ajukan ke P1; perubahan header bersama hanya
 lewat P1.
 
+## Jalur Mahir
+
+Untuk P4 yang sudah nyaman C. Aturan angka dan algoritma tetap beku; bagian ini
+hanya memangkas pengantar.
+
+- Baca dulu: `src/gacha/gacha.h`, `src/inventory/inventory.h`, `src/core/config.h`, `tests/t_gacha.c`, `tests/t_inventory.c`, `docs/PRD.md` §6 dan §7.
+- Urutan: rarity dan pity, pull 1x/10x dan duplikat, menu gacha, sort tiga mode, cari linear, equip dan sinkronisasi.
+- Bukti diterima: `bin/t_gacha` dan `bin/t_inventory` lulus, S05 dan S09 lulus, menu Inventory memuat `Urutkan`, `Cari item`, `Equip item`, `Kembali`.
+- Jebakan: algoritma per mode sort tidak boleh ditukar; pity diproses per tarikan; pull yang tidak dapat tempat mengembalikan gold; pencarian linear substring, bukan binary.
+
 ## Konteks untuk AI
 
 Bagian ini untuk kamu yang menempel panduan ke asisten AI. Isinya merangkum tugas
@@ -69,11 +79,9 @@ prototipe.
 |`sortInventory(p, 2)`|Selection Sort|power menurun|
 |`sortInventory(p, 3)`|Bubble Sort, stabil|nama A–Z, case-insensitive|
 |`searchItemByName`|linear|substring, case-insensitive|
-|`searchItemByNameBinary`|binary|nama exact, case-insensitive, hanya benar setelah `sortInventory(p, 3)`|
 
-Menu Inventory memakai pilihan nomor 4 berlabel `Cari item (binary)` untuk
-memanggil `searchItemByNameBinary`. Urutkan dulu dengan mode 3 di dalam menu,
-jangan mencari pada data yang belum terurut nama.
+Menu Inventory memakai pilihan berlabel `Cari item` untuk memanggil
+`searchItemByName`.
 
 **Prototipe.** Disalin apa adanya dari header kontrak; jangan mengubah nama,
 tipe, atau urutan parameter.
@@ -95,9 +103,6 @@ int pullOnce(Player *p, const Item catalog[], int count, int rarity);   /* 0 whe
 void inventoryMenu(Player *p);
 void sortInventory(Player *p, int mode);
 int searchItemByName(const Player *p, const char *word);
-/* Exact-name lookup. Requires inventory already sorted with sortInventory(p, 3).
-   Case-insensitive; returns index or -1. */
-int searchItemByNameBinary(const Player *p, const char *word);
 void equipItem(Player *p, int index);
 void syncEquipped(Player *p, int oldWeaponId, int oldArmorId);
 ```
@@ -115,7 +120,7 @@ Kerjakan hanya src/gacha/gacha.c dan src/inventory/inventory.c sesuai kontrak.
 - sortInventory: mode 1 Bubble Sort (rarity menaik), mode 2 Selection Sort
   (power menurun), mode 3 Bubble Sort (nama A-Z). Algoritma per mode tidak
   boleh ditukar.
-- searchItemByNameBinary wajib dipanggil setelah sortInventory(p, 3).
+- searchItemByName memakai pencarian linear substring yang tidak peka huruf besar-kecil.
 - Jangan mengubah tests/* agar lulus dan jangan menyentuh modul lain.
 ```
 
@@ -126,7 +131,6 @@ Kerjakan hanya src/gacha/gacha.c dan src/inventory/inventory.c sesuai kontrak.
 |S05|pull 10x saat gold kurang|`Gold kurang! Butuh 900 gold`|
 |S08|urut dan cari inventory (driver `bin/t_inventory`)|exit 0, tanpa output|
 |S09|jual item memakai `weaponIndex`/`armorIndex` yang benar|`Terjual:`|
-|S19|selection sort dan binary search (driver `bin/t_search`)|exit 0, tanpa output|
 
 ## Prasyarat
 
@@ -254,28 +258,23 @@ sementara.
 > memuat "Alpha" mengembalikan indeks item itu; pencarian kata yang tidak ada
 > mengembalikan -1. Perilaku ini tercakup oleh driver `t_inventory`.
 
-### Langkah 6 — `searchItemByNameBinary` dan menu Inventory
+### Langkah 6 — Menu Inventory
 
-Sekarang versi binary search. `int searchItemByNameBinary(const Player *p,
-const char *word)` mencari item dengan nama yang sama persis (bukan substring),
-case-insensitive, memakai algoritma binary search: bandingkan elemen tengah,
-lalu buang setengah array yang pasti tidak memuat target, ulangi sampai ketemu
-atau batas menyusut.
+Sambungkan fungsi pencarian ke `inventoryMenu`. Menu menampilkan empat pilihan:
+`Urutkan`, `Cari item`, `Equip item`, dan `Kembali`.
 
-Prasyaratnya penting dan sudah tertulis di header: inventory harus sudah diurutkan
-dengan `sortInventory(p, 3)` (nama A–Z) sebelum fungsi ini dipanggil. Binary
-search hanya benar pada data terurut. Kalau pemain memanggil pencarian saat
-inventory belum terurut nama, urutkan dulu dari dalam menu — jangan diam-diam
-mencari pada data kacau.
+Alur `Cari item`: minta kata kunci lewat helper input yang disiapkan P1, panggil
+`searchItemByName`, lalu tampilkan hasilnya (nama, rarity, power) atau pesan
+tidak ditemukan. Pencarian tetap linear substring, jadi tidak perlu mengurutkan
+inventory lebih dulu.
 
-Kemudian tambahkan pilihan baru nomor 4 dengan label `Cari item (binary)` di
-`inventoryMenu`. Alurnya: minta kata kunci lewat `ui_line_read` atau helper input
-yang disiapkan P1, panggil `searchItemByNameBinary`, lalu tampilkan hasilnya
-(nama, rarity, power) atau pesan tidak ditemukan.
+Alur `Urutkan`: tawarkan tiga mode yang sudah dibekukan, yaitu rarity menaik
+(mode 1), power menurun (mode 2), dan nama A-Z (mode 3). Jangan menukar
+algoritma antar mode.
 
-> **Expected:** `bin/t_search` lulus (exit 0, tanpa output) saat `make test`.
-> Driver menguji pencarian kata dalam berbagai bentuk huruf, kata yang tidak ada,
-> dan inventory kosong. Dari menu, pilihan nomor 4 berjalan seperti dijelaskan.
+> **Expected:** dari menu Inventory, `Cari item` menemukan item dengan kata
+> kunci sebagian, dan `Urutkan` mengubah urutan daftar sesuai mode. Perilaku
+> pencarian dan pengurutan juga diuji oleh `bin/t_inventory`.
 
 ### Langkah 7 — `equipItem`
 
@@ -303,10 +302,10 @@ Pemakaian item potion juga bukan wilayahmu — itu bagian battle (P3) dan shop (
 
 - `src/gacha/gacha.c` dan `src/inventory/inventory.c` lengkap, tidak ada stub.
 - `make` menghasilkan `bin/game` tanpa warning.
-- Tiga driver lulus: `bin/t_gacha`, `bin/t_inventory`, `bin/t_search`.
+- Dua driver lulus: `bin/t_gacha` dan `bin/t_inventory`.
 - Skenario S05 dan S09 menghasilkan output sesuai tabel skenario di PRD §11.
 - Kamu bisa menjelaskan ke anggota lain cara kerja pity, kenapa mode 1/3 harus
-  Bubble Sort, dan kenapa binary search menuntut data terurut.
+  Bubble Sort, dan kenapa mode 3 memakai Bubble Sort yang stabil.
 - Tidak ada `printf` di kedua berkas milikmu, dan tidak ada pemanggilan `rand()`.
 
 ## Larangan
@@ -327,7 +326,6 @@ Pemakaian item potion juga bukan wilayahmu — itu bagian battle (P3) dan shop (
 - `docs/PRD.md` §6 (Aturan Game) dan §7 (kontrak modul gacha dan inventory).
 - `src/gacha/gacha.h`, `src/inventory/inventory.h`,
   `src/core/config.h`.
-- `tests/t_gacha.c`, `tests/t_inventory.c`,
-  `tests/t_search.c`, dan `tests/run_tests.sh`.
+- `tests/t_gacha.c`, `tests/t_inventory.c`, dan `tests/run_tests.sh`.
 - `docs/panduan-0-git-dan-kompilasi.md` untuk alur branch, commit, dan PR ke `dev`.
 - `docs/PEMBAGIAN-TUGAS.md` untuk fase, tag, dan aturan kerja bersama.

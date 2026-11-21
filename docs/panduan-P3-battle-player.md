@@ -15,6 +15,16 @@ Sebagai anggota awam, kamu tidak diharapkan sudah pernah menulis program C sebes
 
 Header `player.h` dan `battle.h` sudah ada di kontrak dan tidak boleh kamu ubah sendiri. Kalau kamu merasa butuh fungsi atau field baru, ajukan ke P1. Driver test `t_player.c` dan `t_battle.c` juga bukan milikmu; kamu hanya menjalankannya.
 
+## Jalur Mahir
+
+Untuk P3 yang sudah nyaman C. Kamu tetap memegang dua modul dan wajib memenuhi
+angka yang dibekukan; panduan rinci di bawah menjelaskan tiap milestone.
+
+- Baca dulu: `src/player/player.h`, `src/battle/battle.h`, `src/core/config.h`, `tests/t_player.c`, `tests/t_battle.c`, `docs/PRD.md` §6.
+- Urutan: statistik awal, EXP dan level, damage dan crit, loop battle, game over dan flag, panel status.
+- Bukti diterima: `bin/t_player` dan `bin/t_battle` lulus, S03/S04/S18 lulus, log crit sama dengan damage yang masuk.
+- Jebakan: crit hanya dihitung di satu jalur; level maksimal 10 dengan EXP direset; reset run mempertahankan nama dan seed; flag hasil battle dibersihkan setelah dibaca.
+
 ## Konteks untuk AI
 
 Bagian ini untuk kamu yang mengerjakan panduan ini bersama AI. Tempelkan bagian ini apa adanya supaya AI tidak menebak. Kalau AI hanya membaca panduan ini dan dua header modul, isinya sudah cukup untuk mulai menulis kode.

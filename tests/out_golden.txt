@@ -1,0 +1,200 @@
+GACHA QUEST > Menu Utama
+--------------------------------------------------
+  1. Game Baru
+  2. Load Game
+  3. Leaderboard
+  0. Keluar
+ 1. Game Baru
+ 2. Load Game
+ 3. Leaderboard
+ 0. Keluar
+Pilih: Masukkan nama pemain (maks 29 karakter): Masukkan nama pemain (maks 29 karakter): Seed dunia (Enter saja untuk acak): GACHA QUEST > Hub
+--------------------------------------------------
++Status------------------------------------------+
+| Pemain : SeedUji                               |
+| Level  : 1 (Skor 0)                            |
+| HP  #################################  100/100 |
+| Gold   : 200   Potion: 2                       |
++------------------------------------------------+
+  1. Battle
+  2. Gacha
+  3. Inventory
+  4. Shop
+  5. Dungeon
+  6. Status
+  7. Simpan
+  0. Kembali ke menu utama
+ 1. Battle
+ 2. Gacha
+ 3. Inventory
+ 4. Shop
+ 5. Dungeon
+ 6. Status
+ 7. Simpan
+ 0. Kembali ke menu utama
+Selamat datang, SeedUji! Kamu dapat 200 gold.
+Pilih: [2J[H[2mDunia dungeon dibangun dari seed 777. Masukkan seed ini lagi kapan saja untuk peta yang persis sama.
+Jalan ke segala arah. Kumpulkan treasure ($), lalu tekan Q kalau sudah puas.
+[0mTekan Enter untuk masuk: [?25l[2J[H                  .....#.#.####                 
+                 ......#.#......                
+                .......###.$.....               
+                ..C....#P....$...               
+                .......###.......               
+                 ......###......                
+                  .....###.....                 
+Posisi dunia (1,1) | langkah 0 | HP [32m100/100[0m [####################] | gold 200 | seed 777
+Area awal tersambung dari titik awal sampai isi terjauh (DFS).
+Gerak (W/A/S/D, H hint 30 gold, Q keluar): [?25h[2J[HGACHA QUEST > Hub
+--------------------------------------------------
++Status------------------------------------------+
+| Pemain : SeedUji                               |
+| Level  : 1 (Skor 0)                            |
+| HP  #################################  100/100 |
+| Gold   : 200   Potion: 2                       |
++------------------------------------------------+
+  1. Battle
+  2. Gacha
+  3. Inventory
+  4. Shop
+  5. Dungeon
+  6. Status
+  7. Simpan
+  0. Kembali ke menu utama
+ 1. Battle
+ 2. Gacha
+ 3. Inventory
+ 4. Shop
+ 5. Dungeon
+ 6. Status
+ 7. Simpan
+ 0. Kembali ke menu utama
+Keluar dungeon. Langkah total: 0.
+Pilih: GACHA QUEST > Simpan Game
+--------------------------------------------------
+Slot 1  (kosong)
+Slot 2  (kosong)
+Slot 3  (kosong)
+Slot 4  (kosong)
+Slot 5  (kosong)
+Buat save baru (slot 1)
+Kembali
+Up/Down pilih  Enter konfirmasi  Esc kembali
+Pilih baris (0 batal): Pilih baris (0 batal): GACHA QUEST > Hub
+--------------------------------------------------
++Status------------------------------------------+
+| Pemain : SeedUji                               |
+| Level  : 1 (Skor 0)                            |
+| HP  #################################  100/100 |
+| Gold   : 200   Potion: 2                       |
++------------------------------------------------+
+  1. Battle
+  2. Gacha
+  3. Inventory
+  4. Shop
+  5. Dungeon
+  6. Status
+  7. Simpan
+  0. Kembali ke menu utama
+ 1. Battle
+ 2. Gacha
+ 3. Inventory
+ 4. Shop
+ 5. Dungeon
+ 6. Status
+ 7. Simpan
+ 0. Kembali ke menu utama
+Progres tersimpan di slot 1.
+Pilih: GACHA QUEST > Menu Utama
+--------------------------------------------------
+  1. Game Baru
+  2. Load Game
+  3. Leaderboard
+  0. Keluar
+ 1. Game Baru
+ 2. Load Game
+ 3. Leaderboard
+ 0. Keluar
+Skor SeedUji (0) dicatat ke leaderboard. Kembali ke menu utama.
+Pilih: Angka harus 0 sampai 3.
+GACHA QUEST > Load Game
+--------------------------------------------------
+Slot 1  SeedUji
+Slot 2  (kosong)
+Slot 3  (kosong)
+Slot 4  (kosong)
+Slot 5  (kosong)
+Kembali
+Up/Down pilih  Enter konfirmasi  Esc kembali
+Pilih baris (0 batal): Pilih baris (0 batal): GACHA QUEST > Hub
+--------------------------------------------------
++Status------------------------------------------+
+| Pemain : SeedUji                               |
+| Level  : 1 (Skor 0)                            |
+| HP  #################################  100/100 |
+| Gold   : 200   Potion: 2                       |
++------------------------------------------------+
+  1. Battle
+  2. Gacha
+  3. Inventory
+  4. Shop
+  5. Dungeon
+  6. Status
+  7. Simpan
+  0. Kembali ke menu utama
+ 1. Battle
+ 2. Gacha
+ 3. Inventory
+ 4. Shop
+ 5. Dungeon
+ 6. Status
+ 7. Simpan
+ 0. Kembali ke menu utama
+Selamat datang kembali, SeedUji!
+Pilih: [2J[H[2mDunia dungeon dibangun dari seed 777. Masukkan seed ini lagi kapan saja untuk peta yang persis sama.
+Jalan ke segala arah. Kumpulkan treasure ($), lalu tekan Q kalau sudah puas.
+[0mTekan Enter untuk masuk: [?25l[2J[H                  .....#.#.####                 
+                 ......#.#......                
+                .......###.$.....               
+                ..C....#P....$...               
+                .......###.......               
+                 ......###......                
+                  .....###.....                 
+Posisi dunia (1,1) | langkah 0 | HP [32m100/100[0m [####################] | gold 200 | seed 777
+Area awal tersambung dari titik awal sampai isi terjauh (DFS).
+Gerak (W/A/S/D, H hint 30 gold, Q keluar): [?25h[2J[HGACHA QUEST > Hub
+--------------------------------------------------
++Status------------------------------------------+
+| Pemain : SeedUji                               |
+| Level  : 1 (Skor 0)                            |
+| HP  #################################  100/100 |
+| Gold   : 200   Potion: 2                       |
++------------------------------------------------+
+  1. Battle
+  2. Gacha
+  3. Inventory
+  4. Shop
+  5. Dungeon
+  6. Status
+  7. Simpan
+  0. Kembali ke menu utama
+ 1. Battle
+ 2. Gacha
+ 3. Inventory
+ 4. Shop
+ 5. Dungeon
+ 6. Status
+ 7. Simpan
+ 0. Kembali ke menu utama
+Keluar dungeon. Langkah total: 0.
+Pilih: Simpan sebelum keluar? (y/n): Simpan sebelum keluar? (y/n): GACHA QUEST > Menu Utama
+--------------------------------------------------
+  1. Game Baru
+  2. Load Game
+  3. Leaderboard
+  0. Keluar
+ 1. Game Baru
+ 2. Load Game
+ 3. Leaderboard
+ 0. Keluar
+Skor SeedUji (0) dicatat ke leaderboard. Kembali ke menu utama.
+Pilih: Terima kasih sudah bermain Gacha Quest!

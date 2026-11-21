@@ -22,6 +22,16 @@ Semua anggota lain menumpang pada scaffold-mu. Kalau `make` belum jalan, P2 samp
 
 Header di `src/core`, `src/util`, `src/ui`, dan `src/platform` sudah tersedia lewat kontrak. Kamu boleh mengubah isinya, tetapi setiap perubahan yang memengaruhi modul lain wajib kamu kabari sebelum di-commit. File implementasi modul lain sama sekali bukan milikmu.
 
+## Jalur Mahir
+
+Untuk P1 yang sudah nyaman C, git, terminal, dan testing. Panduan rinci di bawah
+tetap menjadi acuan angka; bagian ini hanya memangkas pengantar.
+
+- Baca dulu: `docs/PRD.md` §5 dan §7, `docs/UI.md` untuk tampilan target, `docs/screens.md` untuk hasil visual, dan semua header di `src/`.
+- Urutan: scaffold + stub, `contract-v1`, util, UI, platform, `main.c` sampai `ui-ready`, lalu integrasi.
+- Kontrak bukti: `make` tanpa warning, sembilan driver lulus, S01-S18 lulus, Ctrl+C memulihkan terminal, instance kedua ditolak, autosave dan `.bak` tervalidasi.
+- Jebakan: akses OS hanya di `src/platform`; logika game tidak boleh masuk `src/ui`; jangan menambah target Makefile di luar `all`, `start`, `test`, `clean`; jangan menimpa file modul anggota lain.
+
 ## Konteks untuk AI
 
 Proyek ini adalah game terminal berbahasa C11 tanpa dependensi luar. Sebagai P1 kamu menulis `Makefile`, `main.c`, `src/core/config.h`, seluruh `src/util`, seluruh `src/ui`, dan seluruh `src/platform`; modul `player`, `battle`, `gacha`, `inventory`, `shop`, `storage`, dan `dungeon` hanya kamu stub sampai pemiliknya menyerahkan implementasi. Bagian ini merangkum fakta yang wajib dipakai apa adanya. Kalau kamu diminta menulis kode P1, jangan menebak nama fungsi, angka, atau format di luar daftar ini.
@@ -123,7 +133,7 @@ Pakai hanya fungsi publik dan konstanta yang sudah ada di header yang dilampirka
 Setelah selesai, jalankan make lalu make test dan laporkan keluaran aslinya.
 ```
 
-Expected: `make test` berakhir `=== Ringkasan: 24 lulus, 0 gagal ===`.
+Expected: `make test` berakhir `=== Ringkasan: <jumlah> lulus, 0 gagal ===`.
 
 ## Prasyarat
 
@@ -198,7 +208,7 @@ Modul yang perlu stub beserta fungsi wajibnya:
 | `src/player/player.c` | `initPlayer`, `resetPlayer`, `addExp`, `totalAtk`, `totalDef`, `showStatus` |
 | `src/battle/battle.c` | `startBattle`, `startBattleAgainst`, `resumeBattle`, `calculateDamage`, `battleRunAborted`, `battleClearRunAbort`, `battleRunEnded`, `battleClearRunEnded`, `battleGameOverScreen` |
 | `src/gacha/gacha.c` | `gachaMenu`, `rollRarity`, `findItemInInventory`, `duplicatePrice`, `rarityName`, `pullOnce` |
-| `src/inventory/inventory.c` | `inventoryMenu`, `sortInventory`, `searchItemByName`, `searchItemByNameBinary`, `equipItem`, `syncEquipped` |
+| `src/inventory/inventory.c` | `inventoryMenu`, `sortInventory`, `searchItemByName`, `equipItem`, `syncEquipped` |
 | `src/shop/shop.c` | `shopMenu` |
 | `src/storage/storage.c` | `loadCatalog`, `loadMonsters`, `saveGame`, `saveGameSlot`, `loadGame`, `loadGameSlot`, `saveSlotPath`, `saveSlotExists`, `saveSlotName`, `saveSlotFirstFree`, `recordScore`, `showLeaderboard` |
 | `src/dungeon/dungeon.c` | `cellHash`, `dungeonCell`, `randomWorldSeed`, `promptWorldSeed`, `promptWorldSeedTry`, `dfsReachable`, `bfsShortestPath`, `runDungeon`, `resumeDungeon` |
@@ -362,14 +372,14 @@ make
 make test
 ```
 
-Expected: `make` bersih tanpa warning, lalu `run_tests.sh` mengompilasi sepuluh driver dan menjalankan tiga belas skenario. Baris terakhir berbunyi `=== Ringkasan: 24 lulus, 0 gagal ===`. Kalau ada baris `GAGAL`, baca `tests/out_last.txt`; berkas itu menyimpan keluaran terakhir dari driver atau skenario yang gagal.
+Expected: `make` bersih tanpa warning, lalu `run_tests.sh` mengompilasi sembilan driver dan menjalankan delapan belas skenario S01 sampai S18. Baris terakhir berbunyi `=== Ringkasan: <jumlah> lulus, 0 gagal ===`. Kalau ada baris `GAGAL`, baca `tests/out_last.txt`; berkas itu menyimpan keluaran terakhir dari driver atau skenario yang gagal.
 
 ## Definition of Done
 
 Pekerjaanmu selesai kalau semua poin ini benar:
 
 - `make` menghasilkan `bin/game` tanpa satu pun warning dengan `-Wall -Wextra -Wpedantic`.
-- `make test` berakhir `24 lulus, 0 gagal`, termasuk sepuluh driver dan skenario S01 sampai S19.
+- `make test` berakhir `semua lulus, 0 gagal`, termasuk sembilan driver dan skenario S01 sampai S18.
 - Terminal kembali ke kondisi normal setelah keluar, baik lewat menu Keluar, Ctrl+C, maupun saat crash buatan. Kursor terlihat lagi dan layar tidak penuh sisa karakter.
 - Instance kedua ditolak dengan pesan yang jelas, karena `lock_acquire` gagal dan game keluar tanpa merusak `data/session.lock`.
 - Autosave bisa dimuat ulang dengan `autosave_load`, dan file yang dipotong atau diubah isinya ditolak.

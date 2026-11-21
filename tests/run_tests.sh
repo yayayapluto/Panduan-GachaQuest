@@ -64,7 +64,6 @@ $CC $CFLAGS $SAN -o bin/t_player tests/t_player.c $LIB
 $CC $CFLAGS $SAN -o bin/t_battle tests/t_battle.c $LIB
 $CC $CFLAGS $SAN -o bin/t_gacha tests/t_gacha.c $LIB
 $CC $CFLAGS $SAN -o bin/t_inventory tests/t_inventory.c $LIB
-$CC $CFLAGS $SAN -o bin/t_search tests/t_search.c $LIB
 $CC $CFLAGS $SAN -o bin/t_storage tests/t_storage.c $LIB
 $CC $CFLAGS $SAN -o bin/t_leaderboard tests/t_leaderboard.c $LIB
 $CC $CFLAGS $SAN -o bin/t_dungeon tests/t_dungeon.c $LIB
@@ -77,7 +76,6 @@ rm -f data/leaderboard.txt
 driver "Pemain: statistik awal, EXP, naik level, total serangan" bin/t_player
 driver "Battle: rumus damage dan rentang hasil" bin/t_battle
 driver "S08 urut & cari inventory" bin/t_inventory
-driver "S19 selection sort & binary search" bin/t_search
 driver "S06/S07 rarity, pity, duplikat" bin/t_gacha
 driver "S12/S14 dungeon prosedur: seed deterministik, DFS & BFS" bin/t_dungeon
 

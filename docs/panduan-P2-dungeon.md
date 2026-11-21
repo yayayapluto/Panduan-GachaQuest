@@ -16,6 +16,16 @@ Kebanyakan modul lain cuma memproses data. Modulmu beda: dunia yang kamu bangkit
 
 Tiga file itu cuma milikmu. Modul lain tidak boleh menyentuhnya, dan kamu juga tidak boleh menyentuh file milik orang lain. Kalau kamu butuh perubahan pada header bersama seperti `config.h`, ajukan ke P1.
 
+## Jalur Mahir
+
+Untuk P2 yang sudah nyaman C dan struktur data. Bagian ini mengasumsikan kamu
+sudah membaca kontrak dan test; panduan rinci di bawah tetap berlaku.
+
+- Baca dulu: `src/dungeon/dungeon.h`, `src/core/config.h`, `tests/t_dungeon.c`, `docs/PRD.md` §6 dan §7, `docs/KEPUTUSAN-PERILAKU.md` bagian Dungeon.
+- Urutan: hash sel, terrain per chunk, gate bersama, pass konektivitas, DFS, BFS, loop dungeon, resume.
+- Bukti diterima: `bin/t_dungeon` lulus, S12/S13/S14/S16 lulus, seed sama menghasilkan peta sama setelah simpan dan muat.
+- Jebakan: gate harus dihitung dari sisi bersama agar dua chunk cocok; isi dungeon di-roll per chunk; hint BFS mencari treasure; tanpa `malloc`, rekursi, `rand()`, atau `printf` layar.
+
 ## Konteks untuk AI
 
 Bagian ini ada supaya siapa pun bisa menempelkan file ini ke AI dan langsung mendapat pekerjaan yang sesuai kontrak, tanpa perlu menebak angka atau nama fungsi.

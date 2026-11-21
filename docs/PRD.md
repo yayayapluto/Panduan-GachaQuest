@@ -423,7 +423,6 @@ grid layar.
 | `void inventoryMenu(Player *p);` | |
 | `void sortInventory(Player *p, int mode);` | |
 | `int searchItemByName(const Player *p, const char *word);` | |
-| `int searchItemByNameBinary(const Player *p, const char *word);` | pencarian nama persis; inventori harus sudah diurut dengan `sortInventory(p, 3)`; tidak peka huruf besar-kecil; mengembalikan indeks atau -1 |
 | `void equipItem(Player *p, int index);` | |
 | `void syncEquipped(Player *p, int oldWeaponId, int oldArmorId);` | |
 
@@ -578,7 +577,7 @@ skenario di bagian 11 atau driver `bin/t_*` yang memverifikasinya.
 
 | Materi | Wujud wajib | Pemilik | Bukti |
 |---|---|---|---|
-| Pertemuan 1: lingkungan & struktur program | struktur repo + header guard, `main.c`, Makefile target `all/start/test/clean` | P1 | `make test` lulus; S01–S19 |
+| Pertemuan 1: lingkungan & struktur program | struktur repo + header guard, `main.c`, Makefile target `all/start/test/clean` | P1 | `make test` lulus; S01–S18 |
 | Pertemuan 2: input, output, variabel, tipe data | `readLine/readInt/readString`, struct `Player`, tabel status/inventory | P1, P3 | S01, S02; `t_util`, `t_player` |
 | Pertemuan 3: operator, ekspresi, konversi, tracing | `calculateDamage`, `totalAtk/totalDef`, `rollRarity`, konversi digit `char` ke `int` saat parsing | P3, P4, P5 | `t_battle`, `t_gacha`; S03 |
 | Pertemuan 4: if / else-if / nested / switch | switch menu, rantai else-if roll rarity, hasil battle, validasi input | semua | S02, S05, S18 |
@@ -591,10 +590,10 @@ skenario di bagian 11 atau driver `bin/t_*` yang memverifikasinya.
 | Karakter & string | `char name[MAX_NAME]`, `strcmp/strncpy/sscanf`, lowercase, parsing pipa `\|` | P4, P5 | S10, S11; `t_storage` |
 | Pointer dasar & parameter alamat | `Player *p` di semua modul, `int *pity`, `Point path[]`, buffer keluaran | semua | S06/S07 (`t_gacha`), S14 |
 | struct, typedef, array of structs | `Item/Monster/Player/Point/DungeonState` di `config.h` | P1 (kontrak), semua (memakai) | semua driver |
-| Searching & sorting | `findItemInInventory` (sequential), `sortInventory` mode 1/3 (bubble), mode 2 (selection), `searchItemByNameBinary` (binary), leaderboard top 10 | P4, P5 | S08, S15, S19 |
+| Searching & sorting | `findItemInInventory` (sequential), `sortInventory` mode 1/3 (bubble), mode 2 (selection), leaderboard top 10 | P4, P5 | S08, S15 |
 | File teks & persistensi | `loadCatalog/loadMonsters`, `saveGameSlot/loadGameSlot`, `recordScore`, `file_write_atomic` | P5 | S10, S11, S15, S17 |
 | Penanganan error file/input | pesan gagal muat/simpan, validasi angka dan nama, fallback non-interaktif | P5, P1 | S01, S02, S11 |
-| Pengujian dasar | `tests/run_tests.sh`, driver `t_*` lulus tanpa warning | semua | seluruh S01–S19 |
+| Pengujian dasar | `tests/run_tests.sh`, driver `t_*` lulus tanpa warning | semua | seluruh S01–S18 |
 
 ## 10. Validasi dan Penanganan Error
 
@@ -640,7 +639,6 @@ mencari penanda di keluarannya.
 | S16 | seed dunia | `dibangun dari seed 777` (muncul 2 kali) |
 | S17 | autosave atomik, CRC, `.bak`, kunci sesi | exit 0 `bin/t_platform` |
 | S18 | kalah membuka game over | `Mulai ulang (reset run)` |
-| S19 | selection sort & binary search (driver baru) | exit 0 `bin/t_search` |
 
 Cara menjalankannya: dari akar repo kerja yang sudah berisi `src/`, `data/`, `tests/`, dan
 `main.c` plus `Makefile`, jalankan `sh tests/run_tests.sh`. Skrip mengompilasi sepuluh
@@ -661,4 +659,4 @@ bertag. Setiap fase punya pemilik tunggal dan satu tag git sebagai penanda seles
 | F1 UI dan platform | `ui-ready` | P1 | `src/util`, `src/ui`, `src/platform` selesai; `t_platform` lulus; Menu Utama, Game Baru, Load Game, Leaderboard, Hub tampil |
 | F2 Modul paralel | `modul-dungeon`, `modul-battle-player`, `modul-gacha-inventory`, `modul-shop-storage` | P2, P3, P4, P5 | masing-masing di branch `feat/<modul>` miliknya |
 | F3 Integrasi | `integrasi` | P1 | semua branch digabung ke `dev`, `make test` hijau penuh |
-| F4 Rilis | `rilis` | semua | uji penuh S01–S19, demo, presentasi |
+| F4 Rilis | `rilis` | semua | uji penuh S01–S18, demo, presentasi |
