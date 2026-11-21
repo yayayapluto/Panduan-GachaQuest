@@ -102,7 +102,7 @@ Aturan yang tidak boleh dilanggar:
 - Tanpa malloc, tanpa rekursi, tanpa printf layar. Tampilan lewat API ui.h,
   log pertarungan lewat ui_log*.
 - Jangan mengubah header, file test, Makefile, main.c, atau modul lain.
-- Kompilasi bersih dengan -std=c11 -Wall -Wextra -Wpedantic.
+- Kompilasi bersih dengan -std=c11 -Wall -Wextra -Wpedantic -D_POSIX_C_SOURCE=200809L.
 
 Kerjakan milestone demi milestone sesuai panduan, tunjukkan kode yang
 berubah, dan berhenti kalau ada bagian panduan yang tidak jelas.

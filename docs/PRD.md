@@ -34,7 +34,7 @@ beserta posisi dungeon dan state RNG-nya.
 | Aspek | Ketentuan |
 |---|---|
 | Bahasa | C standar C11, satu kode sumber untuk semua platform |
-| Flag kompilasi | `-std=c11 -Wall -Wextra -Wpedantic`, tanpa satu pun warning |
+| Flag kompilasi | `-std=c11 -Wall -Wextra -Wpedantic -D_POSIX_C_SOURCE=200809L`, tanpa satu pun warning |
 | Memori | Tanpa `malloc`/`free`, tanpa struktur data dinamis |
 | Rekursi | Dilarang; penelusuran dungeon memakai DFS/BFS dengan array eksplisit |
 | Penyimpanan | Array berukuran tetap dari `config.h` (`MAX_ITEM`, `MAX_MONSTER`, dan seterusnya) |
@@ -641,9 +641,9 @@ mencari penanda di keluarannya.
 | S18 | kalah membuka game over | `Mulai ulang (reset run)` |
 
 Cara menjalankannya: dari akar repo kerja yang sudah berisi `src/`, `data/`, `tests/`, dan
-`main.c` plus `Makefile`, jalankan `sh tests/run_tests.sh`. Skrip mengompilasi sepuluh
-driver `bin/t_*` dan `bin/game` dengan flag `-std=c11 -Wall -Wextra -Wpedantic`, menjalankan
-semua driver dan tiga belas pemanggilan skenario, lalu mencetak ringkasan
+`main.c` plus `Makefile`, jalankan `sh tests/run_tests.sh`. Skrip mengompilasi sembilan
+driver `bin/t_*` dan `bin/game` dengan flag `-std=c11 -Wall -Wextra -Wpedantic -D_POSIX_C_SOURCE=200809L`, menjalankan
+semua driver dan 13 pemanggilan skenario (S16 diuji dua kali sehingga total 23 cek), lalu mencetak ringkasan
 `=== Ringkasan: N lulus, M gagal ===`. Skrip berakhir dengan status keluar 0 hanya bila
 semua lulus. Opsi sanitizer tambahan dapat diberikan sebagai argumen pertama, misalnya
 `sh tests/run_tests.sh -fsanitize=address,undefined`.
