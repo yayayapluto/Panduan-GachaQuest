@@ -258,7 +258,7 @@ make
 **Expected**
 
 ```text
-gcc -std=c11 -Wall -Wextra -Wpedantic ... -o bin/game
+gcc -std=c11 -Wall -Wextra -Wpedantic -D_POSIX_C_SOURCE=200809L ... -o bin/game
 ```
 
 Lalu jalankan pengujian:
